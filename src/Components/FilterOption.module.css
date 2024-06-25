@@ -1,0 +1,34 @@
+
+.filtroItem{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem   ;
+}
+
+.filtroNome {
+    font-weight: 600;
+}
+
+.filtroInfo {
+    display: grid;
+    align-content: flex-start;
+    gap: 4px;
+}
+
+.filtroInfo:nth-child(2) {
+    font-weight: 300;
+}
+
+
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E6E6E6;
+    justify-self: flex-start;
+    align-self: flex-start;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

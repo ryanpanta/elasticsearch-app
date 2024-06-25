@@ -1,0 +1,22 @@
+.info {
+    margin-bottom: 4rem;
+}
+
+.info p:first-child {
+    font-family: var(--type-first);
+    font-size: 2rem;
+    color: var(--preto);
+    margin: 4rem 0 1rem 0;
+}
+
+.resultados {
+    font-family: var(--type-second);
+    color: #A5A5A5;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.resultadosContainer {
+    display: grid;
+    gap: 4rem;
+}

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --preto: #181818;
+  --branco: #fff;
+  --type-first: 'Roboto Condensed';
+  --type-second: 'Roboto';
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  max-width: 128rem;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  font-family: var(--type-second);
+}
+
+svg {
+  max-width: 100%;
+}
+
+.container {
+  margin-top: 12rem;
+}

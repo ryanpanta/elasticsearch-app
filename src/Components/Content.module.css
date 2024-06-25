@@ -1,0 +1,52 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 50vh;
+    margin-top: 2rem;
+}
+
+.container::after {
+    display: block;
+    content: '';
+    background-image: url('../assets/jovem.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    padding: 2rem;
+    width: 500px;
+    height: 500px;
+    
+}
+
+.conteudo {
+    display: grid;
+    gap: 2rem;
+    align-self: center;
+    
+}
+
+.titulo {
+    font-family: var(--type-first);
+    font-size: 8.6rem;
+    line-height: .9;
+    font-weight: bold;
+}
+
+.descricao {
+    font-size: 3.2rem;
+    font-weight: 300;
+}
+
+.botao {
+    justify-self: flex-start;
+    background-color: var(--preto);
+    font-family: var(--type-first);
+    font-size: 2rem;
+    color: var(--branco);
+    padding: .8rem 1.6rem;
+    border-radius: 4rem;
+    outline: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+}

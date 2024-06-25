@@ -1,0 +1,53 @@
+.resultItem {
+    padding: 3rem 6rem 3rem 3rem;
+    background-color: #F5F5F5;
+    border: 2px solid #E7E7E7;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2fr 1fr;
+    border-radius: 4rem;
+}
+
+.titulo {
+    grid-column: 1 / -1;
+    font-size: 3.2rem;
+    color: var(--preto);
+    font-family: var(--type-first);
+}
+
+.descricao {
+    grid-column: 1 / -1;
+    color: #616161;
+}
+
+.lerMais {
+    font-family: var(--type-second);
+    color: white;
+    background-color: var(--preto);
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    justify-self: flex-start;
+    align-self: center;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+.filtros {
+    justify-self: flex-end;
+    display: flex;
+    gap: 4rem;
+    align-self: center;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+}
+
+.iconContainer span {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #7C7C7C;
+}

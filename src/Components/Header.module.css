@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    padding-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.navMenu ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.navMenu a {
+    text-decoration: none;
+    color: var(--preto);
+    font-size: 2.4rem;
+    padding: .5rem 1rem;
+    font-weight: 500;
+    font-family: var(--type-first);
+}
