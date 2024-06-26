@@ -20,3 +20,34 @@
     display: grid;
     gap: 3rem;
 }
+
+.paginacao {
+    margin: 2rem 0 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icons > div {
+    background-color: var(--preto);
+    width: 3rem;
+    height: 3rem;
+    border-radius: .6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+    opacity: .6;
+    
+}
