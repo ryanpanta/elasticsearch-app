@@ -4,22 +4,24 @@ import { useNavigate, useLocation } from "react-router-dom";
 export const SearchContext = React.createContext();
 
 export const SearchProvider = ({ children }) => {
-    /* const [search, setSearch] = React.useState(() => {
+
+    const [search, setSearch] = React.useState(() => {
         const url = new URL(window.location.toString());
-        const search = url.searchParams.get("query");
+        const search = url.searchParams.get("search");   
+        
         return search ? search : "";
-    }); */
-    const [search, setSearch] = React.useState("");
-    const [page, setPage] = React.useState(1);
-    /* const [page, setPage] = React.useState(() => {
+    });
+    /* const [search, setSearch] = React.useState(""); */
+    /* const [page, setPage] = React.useState(1); */
+    const [page, setPage] = React.useState(() => {
         const url = new URL(window.location.toString());
         const page = url.searchParams.get("page");
+    
         return page ? Number(page) : 1;
-    }); */
+    });
 
     const navigate = useNavigate();
-    const location = useLocation();
-    const [data, setData] = React.useState([]);
+    const [data, setData] = React.useState(null);
 
     /* const updateURLParams = (search, page) => {
         const url = new URL(window.location.toString());
@@ -28,14 +30,27 @@ export const SearchProvider = ({ children }) => {
         window.history.pushState({}, "", url);
     }; */
 
+    function setCurrentSearch(search) {
+        const url = new URL(window.location.toString());
+        url.searchParams.set("search", search);
+        window.history.pushState({}, "", url);
+        setSearch(search);
+    }
+
+    function setCurrentPage(page) {
+        const url = new URL(window.location.toString());
+        url.searchParams.set("page", String(page));
+        window.history.pushState({}, "", url);
+        setPage(page);
+    }
+
     const fetchData = async (search, page) => {
         const response = await fetch(
-            `http://localhost:8080/v1/search?query=${search}&page=${page}`
+            `http://localhost:8080/v1/search?query=${String(search)}&page=${page}`
         );
         const json = await response.json();
         if (response.ok) {
             setData(json);
-            
         }
         console.log(json);
     };
@@ -43,15 +58,18 @@ export const SearchProvider = ({ children }) => {
     const handleSubmit = async (event) => {
         if (event) event.preventDefault();
         if (search.length < 1) return;
-        await fetchData(search, page);
-        
         navigate("/result");
+        setCurrentSearch(search);
+        setCurrentPage(page);
+        await fetchData(search, page);
+
         //updateURLParams(search, page);
     };
 
+    console.log(data);
     React.useEffect(() => {
         fetchData(search, page);
-    }, [page])
+    }, [page]);
 
     /* React.useEffect(() => {
         const url = new URL(window.location.toString());
@@ -70,10 +88,17 @@ export const SearchProvider = ({ children }) => {
         }
     }, [location.search]); */
 
-
     return (
         <SearchContext.Provider
-            value={{ search, setSearch, handleSubmit, data, setPage, page }}
+            value={{
+                search,
+                setSearch,
+                handleSubmit,
+                data,
+                setPage,
+                page,
+                setCurrentPage,
+            }}
         >
             {children}
         </SearchContext.Provider>
