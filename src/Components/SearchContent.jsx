@@ -2,18 +2,11 @@ import React from "react";
 import styles from "./SearchContent.module.css";
 import { Search, CalendarDays, Clock4 } from "lucide-react";
 import FilterOption from "./FilterOption";
-import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../SearchContext";
 
 function SearchContent({search, setSearch}) {
-
-    const navigate = useNavigate();
-    function handleSubmit(event) {
-        event.preventDefault();
-        if(search){
-            navigate('/result');
-        }
-    }
-
+    
+    const { handleSubmit } = React.useContext(SearchContext);
     return (
         <div className={styles.container}>
             <form className={styles.search} onSubmit={handleSubmit}>
@@ -24,6 +17,7 @@ function SearchContent({search, setSearch}) {
                     type="text"
                     placeholder="Transformada de fourier aplicada na computação"
                 />
+                
                 <button className={styles.searchIcon}>
                     <Search color="#fff" />
                 </button>
