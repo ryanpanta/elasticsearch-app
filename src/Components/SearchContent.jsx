@@ -15,9 +15,9 @@ function SearchContent({search, setSearch}) {
                     value={search}
                     onChange={({target}) => setSearch(target.value)}
                     type="text"
+                    required
                     placeholder="Transformada de fourier aplicada na computação"
-                />
-                
+                />  
                 <button className={styles.searchIcon}>
                     <Search color="#fff" />
                 </button>

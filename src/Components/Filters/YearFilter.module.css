@@ -1,0 +1,51 @@
+.container {
+    position: absolute;
+    background-color: #181818;
+    color: white;
+    top: 5rem;
+    left: -5rem;
+    padding: 2rem;
+    width: 24rem;
+    display: grid;
+    gap: 1rem;
+    border-radius: 2rem;
+    box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.25);
+   
+}
+
+.label {
+    display: flex;
+    gap: .6rem;
+}
+
+.opcoes {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.4rem;
+}
+
+#depois:checked {
+    background-color: red;
+    color: red;
+}
+
+.data {
+    height: 3.2rem;
+    border-radius: .6rem;
+    border: none;
+    outline: none;
+    padding: .2rem .6rem;
+
+}
+
+.botao {
+    height: 3.2rem;
+    border-radius: .6rem;
+    font-size: 1.6rem;
+    color: var(--preto);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: var(--branco);
+}

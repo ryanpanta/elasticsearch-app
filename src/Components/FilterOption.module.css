@@ -10,16 +10,19 @@
 }
 
 .filtroInfo {
+    position: relative;
     display: grid;
     align-content: flex-start;
     gap: 4px;
 }
 
-.filtroInfo:nth-child(2) {
+.filtroInfo p:nth-child(2) {
     font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-
-
 
 .icon {
     display: flex;

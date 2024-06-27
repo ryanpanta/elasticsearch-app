@@ -22,6 +22,10 @@ export const SearchProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const [data, setData] = React.useState(null);
+    const [radio, setRadio] = React.useState("");
+    const [date, setDate] = React.useState(2018);
+    
+
 
     /* const updateURLParams = (search, page) => {
         const url = new URL(window.location.toString());
@@ -66,9 +70,9 @@ export const SearchProvider = ({ children }) => {
         //updateURLParams(search, page);
     };
 
-    console.log(data);
     React.useEffect(() => {
-        fetchData(search, page);
+        if(search.length > 0)
+            fetchData(search, page);
     }, [page]);
 
     /* React.useEffect(() => {
@@ -98,6 +102,10 @@ export const SearchProvider = ({ children }) => {
                 setPage,
                 page,
                 setCurrentPage,
+                radio,
+                setRadio,
+                date, 
+                setDate,
             }}
         >
             {children}
