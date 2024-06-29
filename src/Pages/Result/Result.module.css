@@ -22,7 +22,7 @@
 }
 
 .paginacao {
-    margin: 2rem 0 3rem 0;
+    margin-top: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,4 +50,21 @@
     cursor: wait;
     opacity: .6;
     
+}
+
+.buscando::after {
+    content: '';
+    animation: buscando 2s ease infinite;
+}
+
+@keyframes buscando {
+    0% {
+        content: '.';
+    }
+    50% {
+        content: '..';
+    }
+    100% {
+        content: '...';
+    }
 }

@@ -19,21 +19,35 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  max-width: 128rem;
-  margin: 0 auto;
+body{
   font-size: 1.6rem;
-  padding: 0 2rem;
-  font-family: var(--type-second);
   
+  font-family: var(--type-second);
+  overflow-x: hidden;
+  min-height: 100vh;
 }
+
+
 
 svg {
   max-width: 100%;
 }
 
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainApp{
+  flex: 1;
+}
+
 .container {
+  max-width: 128rem;
+  margin: 0 auto;
   margin-top: 12rem;
+  padding: 0 2rem;
 }
 
 .animeDown {
@@ -51,7 +65,3 @@ svg {
   }
 }
 
-.shadow-drop-2-center {
-	-webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}

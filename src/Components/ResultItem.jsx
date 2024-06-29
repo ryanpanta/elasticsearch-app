@@ -7,9 +7,10 @@ function ResultItem({data}) {
     return (
         <div className={styles.resultItem}>
             <h2 className={styles.titulo}>{data.title}</h2>
-            <p className={styles.descricao}>
-                {data.abs}
-            </p>
+            <p
+                className={styles.descricao}
+                dangerouslySetInnerHTML={{ __html: data.highlight }}
+            />
             <a className={styles.lerMais} href={data.url}>
                 Ler Mais
             </a>

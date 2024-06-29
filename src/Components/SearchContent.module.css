@@ -3,18 +3,21 @@
     gap: 1rem;
     position: relative;
     z-index: 3;
+    max-width: 128rem;
+    margin: 0 auto;
     margin-top: -6rem;
+    
     border: 2px solid var(--preto);
     background-color: var(--branco);
     width: 100%;
     border-radius: 4rem;
     height: 20.4rem;
+    padding: 0 2rem;
 }
 
 .search {
     margin: 0 4rem;
     position: relative;
-    
     padding: 0 8rem;
     display: flex;
     gap: 1rem;
@@ -48,7 +51,7 @@
     border: none;
 }
 
-.filtro{
+.filtro {
     margin-top: 2rem;
     display: flex;
     justify-content: space-around;
