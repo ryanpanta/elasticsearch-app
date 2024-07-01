@@ -119,7 +119,7 @@ export const SearchProvider = ({ children }) => {
         if (search.length < 1) return;
         navigate("/result");
         setCurrentSearch(search);
-        setCurrentPage(page);
+        setCurrentPage(1);
         setCurrentFilter(filterField, filterValue, filterOrder, sort, sortField);
         await fetchData(search, page);
     };
