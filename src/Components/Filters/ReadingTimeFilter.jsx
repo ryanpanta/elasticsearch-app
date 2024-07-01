@@ -5,17 +5,30 @@ import { SearchContext } from "../../SearchContext";
 function ReadingTimeFilter({ setApplyFilter, setShowFilter }) {
     const {
         filterField,
+        filterValue,
+        filterOrder,
+        sort,
+        sortField,
         setFilterField,
         setFilterValue,
         setFilterOrder,
         setSort,
-        sortField,
         setSortField,
     } = React.useContext(SearchContext);
 
     const [localFilterValue, setLocalFilterValue] = React.useState("");
     const [localFilterOrder, setLocalFilterOrder] = React.useState("");
     const [localSort, setLocalSort] = React.useState("");
+
+    React.useEffect(() => {
+        if (filterField === "reading_time") {
+            setLocalFilterValue(filterValue);
+            setLocalFilterOrder(filterOrder);
+        }
+        if (sortField === "reading_time") {
+            setLocalSort(sort);
+        }
+    }, [filterField, filterValue, filterOrder, sort, sortField]);
 
     function handleChangeSort({ target }) {
         setLocalSort(target.value);
@@ -28,8 +41,8 @@ function ReadingTimeFilter({ setApplyFilter, setShowFilter }) {
     function handleSaveFilter() {
         setApplyFilter(true);
         setShowFilter(false);
-        if (filterField !== "reading_time" ) setFilterField("reading_time");
-        if (sortField !== "reading_time"  ) setSortField("reading_time");
+        if (filterField !== "reading_time") setFilterField("reading_time");
+        if (sortField !== "reading_time") setSortField("reading_time");
         setFilterValue(localFilterValue);
         setFilterOrder(localFilterOrder);
         setSort(localSort);
@@ -57,7 +70,7 @@ function ReadingTimeFilter({ setApplyFilter, setShowFilter }) {
                     />
                     Decrescente
                 </label>
-            </div>      
+            </div>
             <div className={styles.opcoes}>
                 <p className={styles.subtitulo}>Período</p>
                 <label className={styles.label}>

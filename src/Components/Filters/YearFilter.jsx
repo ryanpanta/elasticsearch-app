@@ -5,17 +5,30 @@ import { SearchContext } from "../../SearchContext";
 function YearFilter({ setApplyFilter, setShowFilter }) {
     const {
         filterField,
+        filterValue,
+        filterOrder,
+        sort,
+        sortField,
         setFilterField,
         setFilterValue,
         setFilterOrder,
         setSort,
-        sortField,
         setSortField,
     } = React.useContext(SearchContext);
 
     const [localFilterValue, setLocalFilterValue] = React.useState("");
     const [localFilterOrder, setLocalFilterOrder] = React.useState("");
     const [localSort, setLocalSort] = React.useState("");
+
+    React.useEffect(() => {
+        if (filterField === "date_creation") {
+            setLocalFilterValue(filterValue);
+            setLocalFilterOrder(filterOrder);
+        }
+        if (sortField === "date_creation") {
+            setLocalSort(sort);
+        }
+    }, [filterField, filterValue, filterOrder, sort, sortField]);
 
     function handleChangeSort({ target }) {
         setLocalSort(target.value);
