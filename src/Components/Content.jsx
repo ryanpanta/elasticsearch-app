@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Content.module.css";
 import SearchContent from "./SearchContent";
+import { Link } from "react-router-dom";
 
 function Content() {
     return (
@@ -13,7 +14,7 @@ function Content() {
                     <p className={styles.descricao}>
                         Conheça mais sobre o nosso projeto :)
                     </p>
-                    <button className={styles.botao}>Saiba mais</button>
+                    <button className={styles.botao}> <Link to='/project'>Saiba Mais</Link></button>
                 </div>
             </div>
             

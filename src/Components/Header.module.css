@@ -1,11 +1,10 @@
 .header {
     display: flex;
     padding: 2rem 2rem 0 2rem;
-    max-width: 128rem;
-    margin: 0 auto;
     align-items: center;
     justify-content: space-between;
-
+    max-width: 128rem;
+    margin: 0 auto;
     width: 100%;
 }
 

@@ -2,10 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 50vh;
-    max-width: 128rem;
-    margin: 0 auto;
     margin-top: 2rem;
-    padding: 0 2rem;
+    
 }
 
 .container::after {
@@ -50,4 +48,15 @@
     outline: none;
     border: 2px solid transparent;
     cursor: pointer;
+    transition: .2s;
+}
+
+.botao:hover {
+    
+    box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.botao a {
+    color: var(--branco);
+    text-decoration: none;
 }

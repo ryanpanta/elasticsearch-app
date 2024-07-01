@@ -5,6 +5,8 @@ import Footer from "./Components/Footer";
 import Home from "./Pages/Home/Home";
 import Result from "./Pages/Result/Result";
 import { SearchProvider } from "./SearchContext";
+import ProtectedRoute from "./Components/Helper/ProtectedRoute"
+import Project from "./Pages/Project/Project";
 function App() {
     return (
         <div className="App">
@@ -14,7 +16,8 @@ function App() {
                     <main className="mainApp">
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="result" element={<Result />} />
+                            <Route path="result" element={<ProtectedRoute><Result /></ProtectedRoute>} />
+                            <Route path="project" element={<Project />} />
                         </Routes>
                     </main>
                     <Footer />

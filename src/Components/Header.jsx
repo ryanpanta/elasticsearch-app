@@ -15,11 +15,9 @@ function Header() {
                 <nav className={styles.navMenu}>
                     <ul>
                         <li>
-                            <a href="#">Autores</a>
+                            <Link to='/project'>Projeto</Link>
                         </li>
-                        <li>
-                            <a href="#">Contato</a>
-                        </li>
+                        
                     </ul>
                 </nav>
             </div>

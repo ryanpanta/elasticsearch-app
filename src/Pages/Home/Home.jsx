@@ -7,7 +7,7 @@ import Loading from "../../Components/Helper/Loading";
 function Home() {
     const { search, setSearch} = React.useContext(SearchContext);
     return (
-        <section>
+        <section className="containerHome">
             <Content />
             <SearchContent search={search} setSearch={setSearch} />
         </section>

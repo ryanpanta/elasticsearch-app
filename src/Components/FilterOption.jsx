@@ -16,10 +16,10 @@ function FilterOption({ icon: Icon, titulo, descricao }) {
 
     function getFilterDescription() {
         if (titulo === "Ano" && filterField === "date_creation" && applyFilter) {
-            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? ", antes de " : filterOrder === 'gte' ? ' depois de ' : ''}${filterValue ? filterValue : ""}`;
+            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? "antes de " : filterOrder === 'gte' ? ' depois de ' : ''}${filterValue ? filterValue : ""}`;
         }
         if (titulo === "Leitura" && filterField === "reading_time" && applyFilter) {
-            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? ", menor que " : filterOrder === 'gte' ? ' maior que ' : ''} ${filterValue ? filterValue : ""}`;
+            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? "menor que " : filterOrder === 'gte' ? ' maior que ' : ''} ${filterValue ? filterValue : ""}`;
         }
         return descricao;
     }

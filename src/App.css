@@ -50,6 +50,12 @@ svg {
   padding: 0 2rem;
 }
 
+.containerHome{
+  max-width: 128rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .animeDown {
   opacity: 0;
   scale: 0.97;
