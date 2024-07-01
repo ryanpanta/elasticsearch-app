@@ -25,9 +25,6 @@ function SearchContent({search, setSearch}) {
             <div className={styles.filtro}>
                 <FilterOption icon={CalendarDays} titulo='Ano' descricao='Selecione uma data'/>
                 <FilterOption icon={Clock4} titulo='Leitura' descricao='Selecione um tempo'/>
-                <FilterOption icon={CalendarDays} titulo='Ano' descricao='Selecione uma data'/>
-                <FilterOption icon={CalendarDays} titulo='Ano' descricao='Selecione uma data'/>
-               
             </div>
         </div>
     );

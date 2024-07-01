@@ -19,13 +19,13 @@ function ResultItem({data}) {
                     <div className={stylesFilter.icon}>
                         <Clock4 />
                     </div>
-                    <span>{data.readingTime} min</span>
+                    <span>{data.reading_time} min</span>
                 </div>
                 <div className={styles.iconContainer}>
                     <div className={stylesFilter.icon}>
                         <CalendarDays />
                     </div>
-                    <span>2008</span>
+                    <span>{data.date_creation}</span>
                 </div>
             </div>
         </div>

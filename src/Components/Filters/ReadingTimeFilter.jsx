@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./YearFilter.module.css";
 import { SearchContext } from "../../SearchContext";
-function YearFilter({ setApplyFilter, setShowFilter }) {
+function ReadingTimeFilter({ setApplyFilter, setShowFilter }) {
     const {  filterField,
         setFilterField,
         filterValue,
@@ -26,10 +26,10 @@ function YearFilter({ setApplyFilter, setShowFilter }) {
     function handleSaveFilter() {
         setApplyFilter(true);
         setShowFilter(false);
-        if(filterField !== "date_creation")
-            setFilterField("date_creation")
-        if(sortField !== "date_creation")
-            setSortField("date_creation")
+        if(filterField !== "reading_time")
+            setFilterField("reading_time")
+        if(sortField !== "reading_time")
+            setSortField("reading_time")
     }
 
     return (
@@ -67,7 +67,7 @@ function YearFilter({ setApplyFilter, setShowFilter }) {
                         onChange={handleChangeFilterOrder}
                         checked={filterOrder === "gte"}
                     />
-                    Depois de
+                    Maior que
                 </label>
                 <label className={styles.label}>
                     <input
@@ -77,14 +77,14 @@ function YearFilter({ setApplyFilter, setShowFilter }) {
                         onChange={handleChangeFilterOrder}
                         checked={filterOrder === "lte"}
                     />
-                    Antes de
+                    Menor que
                 </label>
             </div>
             <input
                 className={styles.data}
                 type="number"
                 value={filterValue}
-                placeholder="2018"
+                placeholder="6"
                 onChange={({ target }) => setFilterValue(target.value)}
             />
             <button className={styles.botao} onClick={handleSaveFilter}>
@@ -94,4 +94,4 @@ function YearFilter({ setApplyFilter, setShowFilter }) {
     );
 }
 
-export default YearFilter;
+export default ReadingTimeFilter;

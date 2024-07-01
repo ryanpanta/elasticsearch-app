@@ -22,10 +22,35 @@ export const SearchProvider = ({ children }) => {
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(false);
 
-    //Estados para o filtro de ano
-    const [radio, setRadio] = React.useState("");
-    const [date, setDate] = React.useState(2018);
-
+    //Estados para os filtro de ano 
+    const [filterField, setFilterField] = React.useState(() => {
+        const url = new URL(window.location.toString());
+        const filterField = url.searchParams.get("filterField");
+        return filterField ? filterField : "";
+    });
+    const [filterValue, setFilterValue] = React.useState(() => {
+        const url = new URL(window.location.toString());
+        const filterValue = url.searchParams.get("filterValue");
+        return filterValue ? filterValue : "";
+    
+    });
+    const [filterOrder, setFilterOrder] = React.useState(() => {
+        const url = new URL(window.location.toString());
+        const filterOrder = url.searchParams.get("filterOrder");
+        return filterOrder ? filterOrder : "";
+    
+    });
+    const [sort, setSort] = React.useState(() => {
+        const url = new URL(window.location.toString());
+        const sort = url.searchParams.get("sort");
+        return sort ? sort : "";
+    });
+    const [sortField, setSortField] = React.useState(() => {
+        const url = new URL(window.location.toString());
+        const sortField = url.searchParams.get("sortField");
+        return sortField ? sortField : "";
+    });
+    
     const navigate = useNavigate();
 
     function setCurrentSearch(search) {
@@ -42,28 +67,50 @@ export const SearchProvider = ({ children }) => {
         setPage(page);
     }
 
+    function setCurrentFilter(filterField, filterValue, filterOrder, sort, sortField) {
+        const url = new URL(window.location.toString());
+        if(filterField !== "")
+            url.searchParams.set("filterField", String(filterField))
+        if(filterValue !== "")
+            url.searchParams.set("filterValue", String(filterValue))
+        if(filterOrder !== "")
+            url.searchParams.set("filterOrder", String(filterOrder))
+        if(sort !== "")
+            url.searchParams.set("sort", String(sort))
+        if(sortField !== "")
+            url.searchParams.set("sortField", String(sortField))
+        window.history.pushState({}, "", url);
+    }
+
     const fetchData = async (search, page) => {
         try {
             setLoading(true);
             setError(false);
-            console.log(loading)
-            const response = await fetch(
-                `http://localhost:8080/v1/search?query=${String(
-                    search
-                )}&page=${page}`
-            );
+            const url = new URL("http://localhost:8080/v1/search")
+            url.searchParams.set("query", String(search))
+            url.searchParams.set("page", page)
+            if(filterField !== "")
+                url.searchParams.set("filterField", String(filterField))
+            if(filterValue !== "")
+                url.searchParams.set("filterValue", String(filterValue))
+            if(filterOrder !== "")
+                url.searchParams.set("filterOrder", String(filterOrder))
+            if(sort !== "")
+                url.searchParams.set("sort", String(sort))
+            if(sortField !== "")
+                url.searchParams.set("sortField", String(sortField))
+            console.log(url);
+            const response = await fetch(url);
             const json = await response.json();
+
             if (response.ok) {
                 setData(json);
             }
-            console.log(json);
         } catch (error) {
             setError(true);
-            console.log(error);
+           
         } finally {
             setLoading(false);
-            //setError(false);
-            console.log(loading)
         }
     };
 
@@ -73,6 +120,7 @@ export const SearchProvider = ({ children }) => {
         navigate("/result");
         setCurrentSearch(search);
         setCurrentPage(page);
+        setCurrentFilter(filterField, filterValue, filterOrder, sort, sortField);
         await fetchData(search, page);
     };
 
@@ -90,12 +138,18 @@ export const SearchProvider = ({ children }) => {
                 setPage,
                 page,
                 setCurrentPage,
-                radio,
-                setRadio,
-                date,
-                setDate,
                 loading,
-                error
+                error,
+                filterField,
+                setFilterField,
+                filterValue,
+                setFilterValue,
+                filterOrder,
+                setFilterOrder,
+                sort,
+                setSort,
+                sortField,
+                setSortField
             }}
         >
             {children}

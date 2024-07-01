@@ -3,9 +3,10 @@ import styles from "./FilterOption.module.css";
 import { ChevronDown } from "lucide-react";
 import YearFilter from "./Filters/YearFilter";
 import { SearchContext } from "../SearchContext";
+import ReadingTimeFilter from "./Filters/ReadingTimeFilter";
 
 function FilterOption({ icon: Icon, titulo, descricao }) {
-    const { date, radio } = React.useContext(SearchContext);
+    const { filterValue, filterOrder, sort, filterField } = React.useContext(SearchContext);
     const [showFilter, setShowFilter] = React.useState(false);
     const [applyFilter, setApplyFilter] = React.useState(false);
 
@@ -14,10 +15,12 @@ function FilterOption({ icon: Icon, titulo, descricao }) {
     }
 
     function getFilterDescription() {
-        if (titulo === "Ano" && applyFilter) {
-            return `${radio} de ${date}`;
+        if (titulo === "Ano" && filterField === "date_creation" && applyFilter) {
+            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? "Antes de " : filterOrder === 'gte' ? 'Depois de ' : ''}${filterValue ? filterValue : ""}`;
         }
-        // Adicione outras condições para diferentes filtros aqui
+        if (titulo === "Leitura" && filterField === "reading_time" && applyFilter) {
+            return `${sort && sort === 'asc' ? "Crescente" : sort === 'desc' ? "Decrescente" : "" }, ${filterOrder && filterOrder === "lte" ? "Menor que " : filterOrder === 'gte' ? 'Maior que ' : ''} ${filterValue ? filterValue : ""}`;
+        }
         return descricao;
     }
 
@@ -34,6 +37,13 @@ function FilterOption({ icon: Icon, titulo, descricao }) {
                 </p>
                 {showFilter && titulo === "Ano" && (
                     <YearFilter
+                        setApplyFilter={setApplyFilter}
+                        applyFilter={applyFilter}
+                        setShowFilter={setShowFilter}
+                    />
+                )}
+                 {showFilter && titulo === "Leitura" && (
+                    <ReadingTimeFilter
                         setApplyFilter={setApplyFilter}
                         applyFilter={applyFilter}
                         setShowFilter={setShowFilter}
