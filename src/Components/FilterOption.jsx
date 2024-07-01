@@ -39,7 +39,7 @@ function FilterOption({ icon: Icon, titulo, descricao }) {
             </div>
             <div className={styles.filtroInfo}>
                 <p className={styles.filtroNome}>{titulo}</p>
-                <p onClick={handleClick}>
+                <p onClick={handleClick} className={showFilter ? styles.open : ""}>
                     {getFilterDescription()}
                     <ChevronDown />
                 </p>

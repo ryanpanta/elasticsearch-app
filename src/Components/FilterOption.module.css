@@ -1,12 +1,19 @@
-
-.filtroItem{
+.filtroItem {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1rem   ;
+    gap: 1rem;
 }
 
 .filtroNome {
     font-weight: 600;
+}
+
+.filtroInfo p:nth-child(2) svg {
+    transition: ease-in-out 0.2s;
+}
+
+.open svg {
+    transform: rotate(180deg);
 }
 
 .filtroInfo {
@@ -28,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
     justify-self: flex-start;
     align-self: flex-start;
     width: 40px;
